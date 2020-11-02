@@ -1,0 +1,13 @@
+<div class="forma">
+    <mat-form-field class="form-field">
+        <mat-label>Email:</mat-label>
+        <input matInput [(ngModel)]="loginData.email">
+    </mat-form-field>
+    <mat-form-field class="form-field">
+        <mat-label>Password:</mat-label>
+        <input matInput type="password" [(ngModel)]="loginData.password">
+    </mat-form-field>
+    <button type="submit" (click)="onLogin()" class="dugme" mat-raised-button>Log in</button>
+    <mat-label style="color:red">{{greska}}</mat-label>
+    <button (click)="routerRegister()" style="margin-top:60px;width:300px;" class="dugme" mat-raised-button>Create an account</button>
+</div>

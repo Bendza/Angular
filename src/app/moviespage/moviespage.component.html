@@ -1,0 +1,8 @@
+<mat-form-field id="search" >
+    <mat-label>Search movie:</mat-label>
+    <input  matInput [(ngModel)]="search">
+</mat-form-field>
+<button mat-icon-button (click)="getMovies()"><mat-icon>search</mat-icon></button>
+<div class='kartice'>
+    <app-movie *ngFor="let movie of movies" [movie]='movie'></app-movie>
+</div>
