@@ -1,17 +1,22 @@
-<mat-toolbar color='primary'>
+<mat-toolbar style="justify-content: space-between;" color='primary'>
     <button mat-icon-button (click)="snav.toggle()">
         <mat-icon>menu</mat-icon>
     </button>
     <h1>Main Menu</h1>
+    <button mat-raised-button (click)="logOut()"><mat-icon style="margin-right: 10px;">logout</mat-icon>Log Out</button>
 </mat-toolbar>
 <mat-sidenav-container>
     <mat-sidenav #snav>
         <mat-nav-list>
-            <a mat-list-item routerLink='movies '>
-                <mat-icon>movie</mat-icon>Movies
+            <a mat-list-item routerLink='movies'>
+                <mat-icon style="margin-right: 10px;">movie</mat-icon>Movies
             </a>
             <a mat-list-item routerLink='weather'>
-                <mat-icon>cloud</mat-icon>Weather
+                <mat-icon style="margin-right: 10px;">cloud</mat-icon>Weather
+            </a>
+            <a *ngIf="isAdmin()" mat-list-item routerLink='admin'><mat-icon style="margin-right:10px">person</mat-icon>Admin</a>
+            <a mat-list-item routerLink='chat'>
+                <mat-icon style="margin-right: 10px;">chat</mat-icon>Chat
             </a>
         </mat-nav-list>
     </mat-sidenav>

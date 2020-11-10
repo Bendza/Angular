@@ -1,6 +1,8 @@
 import { FullscreenOverlayContainer } from '@angular/cdk/overlay';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminPageComponent } from './admin-page/admin-page.component';
+import { ChatComponent } from './chat/chat.component';
 import { HomeGuard } from './home.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -19,23 +21,33 @@ const routes: Routes = [{
   component: RegisterComponent
 },
 {
+  path: 'admin',
+  component: AdminPageComponent
+},
+{
   path: 'home',
   component: HomeComponent,
   canActivate: [HomeGuard],
-  children:[
+  children: [
     {
-      path:'',
-      redirectTo:'movies',
-      pathMatch:'full'
-
+      path: '',
+      redirectTo: 'movies',
+      pathMatch: 'full'
     },
     {
-    path:'weather',
-    component:WeatherComponent
-  },{
-    path:'movies',
-    component:MoviespageComponent
-  }]
+      path: 'admin',
+      component: AdminPageComponent
+    },
+    {
+      path: 'weather',
+      component: WeatherComponent
+    }, {
+      path: 'movies',
+      component: MoviespageComponent
+    },{
+      path: 'chat',
+      component: ChatComponent
+    }]
 },
 {
   path: '',

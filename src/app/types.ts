@@ -5,12 +5,28 @@ export interface User{
     name:string;
     password:string;
     email:string;
+    role?:Role; 
+    gender:Gender;
+    birth:string;
+} 
+
+export enum Role{
+  Admin = 'Administrator',
+  User = 'Korisnik'
+}
+
+export enum Gender{
+  Male = 'Muski',
+  Female = 'Zenski'
 }
 
 export interface LoginDto{
     email:string;
     password:string;
     name:string;
+    role?:Role;
+    gender:Gender;
+    birth:string;
 }
 
 export interface Movie{
@@ -71,12 +87,34 @@ export const USERS:User[] = [
         name:"Belmin",
         password:"123",
         email:'bendza@mail.com',
+        role: Role.Admin,
+        gender:Gender.Male,
+        birth:'08.01.1998'
     },
-    {
-        id:2,
-        name:"Jakub",
-        password:"123",
-        email:'jaksa@mail.com',
-    }
+]
 
+export class ChatWindow{
+  poruke?:Poruka[];
+  ime:string;
+}
+
+export class Poruka{
+  korisnik:User;
+  sadrzaj:string;
+
+  constructor(korisnik,sadrzaj){
+    this.korisnik = korisnik;
+    this.sadrzaj = sadrzaj;
+  }
+}
+
+export const Chatovi:ChatWindow[] =[
+  {
+    ime:'Chat1',
+    poruke:[]
+  },
+  {
+    ime:'Chat2',
+    poruke:[]
+  }
 ]

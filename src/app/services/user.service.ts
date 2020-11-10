@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { LoginDto, User, USERS } from '../types';
+import { Gender, LoginDto, Role, User, USERS } from '../types';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +27,10 @@ export class UserService {
       id : Math.random() * 10,
       name : registerData.name,
       email : registerData.email,
-      password : registerData.password
+      password : registerData.password,
+      role : Role.User,
+      gender: registerData.gender,
+      birth: registerData.birth
     }
     USERS.push(user);
   }

@@ -1,0 +1,30 @@
+<app-register></app-register>
+<div class="kartice">
+<div *ngFor=" let user of users">
+    <mat-card class="kartica">
+        <mat-form-field class="form-field">
+            <mat-label>Name:</mat-label>
+            <input matInput [(ngModel)]="user.name">
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <mat-label>Password:</mat-label>
+            <input matInput [(ngModel)]="user.password">
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <mat-label>Email:</mat-label>
+            <input matInput [(ngModel)]="user.email">
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <mat-select [(value)]="user.role" [placeholder]="user.role">
+               <mat-option *ngFor="let role of roles" [value]="role">
+                  {{role}}
+                </mat-option>    
+            </mat-select>   
+        </mat-form-field>
+        <mat-card-footer>
+            <button mat-raised-button>Izmeni</button>
+            <button mat-raised-button>Izbrisi</button>
+        </mat-card-footer>
+    </mat-card>
+</div>
+</div>

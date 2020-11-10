@@ -1,17 +1,40 @@
 <div class="forma">
     <mat-form-field class="form-field">
         <mat-label>Username:</mat-label>
-        <input matInput [(ngModel)]="registerData.name">
+        <input (change)='onChange(1,$event)' matInput [(ngModel)]="registerData.name">
     </mat-form-field>
     <mat-form-field class="form-field">
         <mat-label>Password:</mat-label>
-        <input matInput type="password" [(ngModel)]="registerData.password">
+        <input (change)='onChange(2,$event)' matInput type="password" [(ngModel)]="registerData.password">
     </mat-form-field>
     <mat-form-field class="form-field">
         <mat-label>E-mail:</mat-label>
-        <input matInput [(ngModel)]="registerData.email">
+        <input (change)='onChange(3,$event)' matInput [(ngModel)]="registerData.email">
     </mat-form-field>
-    <mat-label style="color:red">{{greska}}</mat-label>
-    <button type="submit" (click)="onRegister()" class="dugme" mat-raised-button>Create an account!</button>
-    <button (click)="gotoLogin()" style="margin-top:60px;width:300px;" class='dugme' mat-raised-button> Go to Login</button>
+    <mat-form-field class="form-field" *ngIf="isRegister()">
+        <mat-select (focusout)='onChange(4,$event)' [formControl]="role">
+            <mat-option *ngFor="let role1 of roles" [value]='role1'>
+                {{role1}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-radio-group (focusout)='onChange(5,$event)' [(ngModel)]="registerData.gender" class='form-field' aria-label="Pol:">
+        <mat-radio-button style="margin-right: 20px;" value='Gender.Male'>Male</mat-radio-button>
+        <mat-radio-button value="Gender.Female">Female</mat-radio-button>
+    </mat-radio-group>
+    <mat-form-field appearance='fill' class="form-field">   
+        <mat-label>Choose a date</mat-label>
+        <input (focusout)='onChange(6,$event)' [(ngModel)]="registerData.birth" matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    <div class="form-field" style="display:flex">
+    <mat-progress-spinner
+        [diameter]=50
+        [mode]="mode"
+        [value]="value">
+    </mat-progress-spinner> 
+        <button type="submit" (click)="onRegister()" class="dugme" mat-raised-button>Create an account!</button>
+    </div>
+    <button *ngIf="!isRegister()" (click)="gotoLogin()" style="margin-top:60px;width:300px;" class='dugme' mat-raised-button> Go to Login</button>
 </div>

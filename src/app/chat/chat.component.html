@@ -1,0 +1,8 @@
+<div class="glavnidiv">
+    <div style="display:flex;flex-direction:column">
+        <button (click)="promenaChata(chat)" class="chat" *ngFor="let chat of listaChatova">
+            {{chat.ime}}
+        </button>
+    </div>
+    <app-chatwindow *ngIf="aktivniChat" [chat]='aktivniChat'></app-chatwindow>
+</div>
