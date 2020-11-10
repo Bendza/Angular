@@ -18,7 +18,7 @@ export class ChatwindowComponent implements OnInit {
   }
 
   posaljiPoruku(){
-    if (this.poruka.sadrzaj !== undefined)
+    if (this.poruka.sadrzaj !== '')
       {
         this.chat.poruke.push(new Poruka(this.poruka.korisnik,this.poruka.sadrzaj));
         this.poruka.sadrzaj = '';

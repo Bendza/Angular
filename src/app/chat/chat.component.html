@@ -1,6 +1,6 @@
 <div class="glavnidiv">
-    <div style="display:flex;flex-direction:column">
-        <button (click)="promenaChata(chat)" class="chat" *ngFor="let chat of listaChatova">
+    <div style="display:flex;flex-direction:column;">
+        <button style="margin:1%;" (click)="promenaChata(chat)" class="chat" *ngFor="let chat of listaChatova">
             {{chat.ime}}
         </button>
     </div>

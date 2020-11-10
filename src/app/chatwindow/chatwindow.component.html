@@ -1,14 +1,14 @@
 <div class="chatwindow">
-    <div style="height:90%;">
+    <div style="height:92%;">
         <app-poruka *ngFor="let por1 of chat.poruke" [por]='por1'>
         </app-poruka>
     </div>
-    <div style="display:flex;height:10%;">
+    <div style="display:flex;height:8%;margin-left:1%;">
         <mat-form-field style="width:100%" class="example-full-width">
             <mat-label>Type here</mat-label>
             <input matInput [(ngModel)]="poruka.sadrzaj" #message maxlength="256">
             <mat-hint>{{message.value.length}} / 256</mat-hint>
           </mat-form-field>
-        <button (click)="posaljiPoruku()" style="width:15%" mat-raised-button>Send</button>
+        <button (click)="posaljiPoruku()" style="width:15%" mat-outlined-button>Send</button>
     </div>
 </div>

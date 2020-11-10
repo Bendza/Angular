@@ -7,4 +7,8 @@ import { Chatovi,ChatWindow,Poruka } from '../types'
 export class ChatService {
   ChatDB:ChatWindow[] = Chatovi;
   constructor() { }
+
+  
+  
+
 }

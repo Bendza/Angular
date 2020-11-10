@@ -1,10 +1,11 @@
 .chat{
-    width:300px;
-    height:150px;
+    width:500px;
+    height:100px;
     background:white;
 }
 
 .glavnidiv{
     height:90vh;
     display: flex;
+    justify-content:space-between;
 }
