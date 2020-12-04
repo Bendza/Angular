@@ -1,4 +1,4 @@
-<div class="forma">
+<div class="forma" (keyup.enter)="onRegister()" >
     <mat-form-field class="form-field">
         <mat-label>Username:</mat-label>
         <input (change)='onChange(1,$event)' matInput [(ngModel)]="registerData.name">

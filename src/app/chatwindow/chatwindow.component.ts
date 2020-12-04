@@ -15,12 +15,13 @@ export class ChatwindowComponent implements OnInit {
   constructor(private chatService:ChatService,private userService:UserService) { }
 
   ngOnInit(): void {
+    
   }
 
   posaljiPoruku(){
     if (this.poruka.sadrzaj !== '')
       {
-        this.chat.poruke.push(new Poruka(this.poruka.korisnik,this.poruka.sadrzaj));
+        this.chatService.sacuvajPoruku(this.poruka,this.chat);
         this.poruka.sadrzaj = '';
       }
   }

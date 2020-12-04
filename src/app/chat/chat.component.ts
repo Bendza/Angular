@@ -11,10 +11,10 @@ import { ChatWindow } from '../types';
 export class ChatComponent implements OnInit {
   @Input() listaChatova:ChatWindow[];
   aktivniChat:ChatWindow;
-  constructor(private chatService:ChatService) { }
+  constructor(public chatService:ChatService) { }
   
   ngOnInit(): void {
-    this.listaChatova = this.chatService.ChatDB;
+    this.chatService.ucitajPoruke();
   }
   
   promenaChata(chat:ChatWindow) {

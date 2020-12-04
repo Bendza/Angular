@@ -4,11 +4,11 @@
         </app-poruka>
     </div>
     <div style="display:flex;height:8%;margin-left:1%;">
-        <mat-form-field style="width:100%" class="example-full-width">
+        <mat-form-field style="width:100%" class="example-full-width" (keyup.enter)="posaljiPoruku()">
             <mat-label>Type here</mat-label>
             <input matInput [(ngModel)]="poruka.sadrzaj" #message maxlength="256">
             <mat-hint>{{message.value.length}} / 256</mat-hint>
           </mat-form-field>
-        <button (click)="posaljiPoruku()" style="width:15%" mat-outlined-button>Send</button>
+        <button mat-raised-button (click)="posaljiPoruku()" style="width:15%;margin:5px;"><mat-icon style="margin-right:20px;">send_icon</mat-icon>Send</button>
     </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="forma">
+<div class="forma" (keyup.enter)='onLogin()'>
     <mat-form-field class="form-field">
         <mat-label>Email:</mat-label>
         <input matInput [(ngModel)]="loginData.email">
